@@ -18,7 +18,7 @@
 - 실행·기록: 김씨
 - 확인: 송씨
 - 브랜치: `feature/kim-conflict-troubleshooting`
-- 관련 Issue/PR: `<I6 Issue URL>` / `<I6 PR URL>`
+- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `<I6 PR URL>`
 
 ### 상황
 
@@ -31,9 +31,12 @@ git status
 git add README.md
 git commit -m "docs: update"
 git log --oneline -1
-git commit --amend -m "docs: prepare Kim version of project description"
-git log --oneline -1
+git branch -r --contains HEAD
+git commit --amend -m "docs: 김씨 버전 프로젝트 설명 준비"
+git log --oneline -2
 ```
+
+`git branch -r --contains HEAD`는 해당 commit이 아직 원격에 없는지 확인하는 명령입니다. amend 후 메시지는 `docs/CONTRIBUTING.md` 3절의 `<영문 type>: <한글 설명>` 형식을 따릅니다.
 
 `git log` 두 번의 출력을 복사한 뒤에만 push합니다.
 
@@ -43,9 +46,34 @@ git push -u origin feature/kim-conflict-troubleshooting
 
 ### 실제 결과(김씨 작성)
 
-- 실행 날짜: `<YYYY-MM-DD>`
-- amend 전 hash·메시지: `<실제 출력>`
-- amend 후 hash·메시지: `<실제 출력>`
+- 실행 날짜: `2026-09-30`
+- amend 전 hash·메시지: `4ece798 docs: update`
+- amend 후 hash·메시지: `e5d3953 docs: 김씨 버전 프로젝트 설명 준비`
+- push 전 원격 포함 여부: `git branch -r --contains HEAD` 출력 없음
+- 원격에 올라간 commit: `e5d3953`만 존재하며 `docs: update`는 push되지 않음
+
+실제 터미널 출력:
+
+```text
+$ git commit -m "docs: update"
+[feature/kim-conflict-troubleshooting 4ece798] docs: update
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git log --oneline -1
+4ece798 docs: update
+$ git branch -r --contains HEAD
+$ git commit --amend -m "docs: 김씨 버전 프로젝트 설명 준비"
+[feature/kim-conflict-troubleshooting e5d3953] docs: 김씨 버전 프로젝트 설명 준비
+ Date: Wed Sep 30 15:35:00 2026 +0900
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git log --oneline -2
+e5d3953 docs: 김씨 버전 프로젝트 설명 준비
+82df3ef Merge pull request #10 from jeenee-cha/feature/song-string-utils
+$ git reflog -3
+e5d3953 HEAD@{0}: commit (amend): docs: 김씨 버전 프로젝트 설명 준비
+4ece798 HEAD@{1}: commit: docs: update
+82df3ef HEAD@{2}: checkout: moving from main to feature/kim-conflict-troubleshooting
+```
+
 - hash가 바뀐 이유: 커밋 객체의 메시지가 바뀌어 새 커밋으로 다시 만들어졌기 때문입니다.
 - 확인자 송씨의 확인 내용: `<확인 댓글 또는 문서 PR 리뷰 URL>`
 
@@ -62,7 +90,7 @@ git push -u origin feature/kim-conflict-troubleshooting
 - 실행·기록: 김씨
 - 확인: 차씨
 - 브랜치: `feature/kim-conflict-troubleshooting`
-- 관련 Issue/PR: `<I6 Issue URL>` / `<I6 PR URL>`
+- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `<I6 PR URL>`
 
 ### 상황
 
@@ -73,13 +101,14 @@ git push -u origin feature/kim-conflict-troubleshooting
 ```bash
 # VS Code에서 이 시나리오의 실제 결과 초안을 작성
 git add docs/troubleshooting-log.md
-git commit -m "docs: draft soft reset practice record"
-git log --oneline -1
+git commit -m "docs: 소프트 리셋 실습 기록 초안"
+git log --oneline -2
+git branch -r --contains HEAD
 git reset --soft HEAD~1
 git status
 # 설명과 실제 출력을 보완
 git add docs/troubleshooting-log.md
-git commit -m "docs: document amend and soft reset practice"
+git commit -m "docs: amend 및 soft reset 실습 기록"
 git log --oneline -2
 ```
 
@@ -94,11 +123,41 @@ git push
 
 ### 실제 결과(김씨 작성)
 
-- 실행 날짜: `<YYYY-MM-DD>`
-- reset으로 취소한 커밋 hash: `<hash>`
-- reset 직후 `git status`: `<Changes to be committed가 보이는 실제 출력>`
-- 변경이 보존된 파일: `<파일 목록>`
-- 다시 작성한 커밋 URL: `<commit URL>`
+- 실행 날짜: `2026-09-30`
+- reset으로 취소한 커밋 hash: `cda3d7b docs: 소프트 리셋 실습 기록 초안`
+- reset 전 원격 포함 여부: `git branch -r --contains HEAD` 출력 없음
+- reset 후 HEAD: `e5d3953 docs: 김씨 버전 프로젝트 설명 준비`
+- reset 직후 `git status`: `Changes to be committed: modified: docs/troubleshooting-log.md`
+- 변경이 보존된 파일: `docs/troubleshooting-log.md` (시나리오 1 실제 결과 34줄 추가분이 staged 상태로 유지)
+- 다시 작성한 커밋 URL: `<commit URL>` (push 후 기록)
+
+실제 터미널 출력:
+
+```text
+$ git commit -m "docs: 소프트 리셋 실습 기록 초안"
+[feature/kim-conflict-troubleshooting cda3d7b] docs: 소프트 리셋 실습 기록 초안
+ 1 file changed, 34 insertions(+), 6 deletions(-)
+$ git log --oneline -2
+cda3d7b docs: 소프트 리셋 실습 기록 초안
+e5d3953 docs: 김씨 버전 프로젝트 설명 준비
+$ git branch -r --contains HEAD
+$ git reset --soft HEAD~1
+$ git status
+On branch feature/kim-conflict-troubleshooting
+Your branch is up to date with 'origin/feature/kim-conflict-troubleshooting'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   docs/troubleshooting-log.md
+
+$ git log --oneline -1
+e5d3953 docs: 김씨 버전 프로젝트 설명 준비
+$ git reflog -2
+e5d3953 HEAD@{0}: reset: moving to HEAD~1
+cda3d7b HEAD@{1}: commit: docs: 소프트 리셋 실습 기록 초안
+```
+
+`cda3d7b`는 push 전에 취소되어 원격에 존재하지 않습니다.
 - 확인자 차씨의 리뷰 URL: `<review URL>`
 
 ### 선택 이유와 주의점
