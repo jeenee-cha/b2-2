@@ -31,8 +31,8 @@ git rev-parse --short "$(git merge-base origin/main origin/feature/song-conflict
 - 충돌 변경 작성자·해결자: 김씨
 - 기준 변경 작성자: 차씨
 - 검증자: 차씨
-- 김씨 Issue/PR: `<I6 Issue URL>` / `<I6 PR URL>`
-- 차씨 기준 Issue/PR: `<I5 Issue URL>` / `<I5 PR URL>`
+- 김씨 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `https://github.com/jeenee-cha/b2-2/pull/15`
+- 차씨 기준 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/13` / `https://github.com/jeenee-cha/b2-2/pull/14`
 
 ### 재현용 변경
 
@@ -60,7 +60,7 @@ git switch -c feature/kim-conflict-troubleshooting
 git add README.md
 git commit -m "docs: update"
 git log --oneline -1
-git commit --amend -m "docs: prepare Kim version of project description"
+git commit --amend -m "docs: 김씨 버전 프로젝트 설명 준비"
 git log --oneline -1
 git push -u origin feature/kim-conflict-troubleshooting
 ```
@@ -79,16 +79,37 @@ git status
 `git status` 관련 출력:
 
 ```text
-<실행 후 README.md가 both modified로 표시된 부분을 붙여넣기>
+$ git rev-parse --short origin/main
+8432dbd
+$ git merge origin/main
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch feature/kim-conflict-troubleshooting
+Your branch is ahead of 'origin/feature/kim-conflict-troubleshooting' by 1 commit.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+	modified:   docs/conflict-resolution.md
+	renamed:    docs/conflict-demo.md -> docs/merge-conflict-demo.md
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   README.md
 ```
 
 실제 충돌 마커:
 
 ```text
 <<<<<<< HEAD
-<김씨 브랜치의 실제 문장>
+우리 팀은 각자의 코드 기여와 리뷰 과정을 중심으로 Git 협업을 연습합니다.
 =======
-<origin/main에서 들어온 차씨 문장>
+우리 팀은 Issue부터 PR 병합까지 전 과정을 재현하며 GitHub Flow를 연습합니다.
 >>>>>>> origin/main
 ```
 
@@ -102,19 +123,21 @@ git status
 
 ```bash
 git add README.md docs/conflict-resolution.md
-git commit -m "docs: resolve same-hunk README conflict"
 python3 -m unittest discover -s tests -v
+grep -n "<<<<<<<\|=======\|>>>>>>>" README.md
+git commit -m "docs: README 같은 hunk 충돌 해결"
 git push
 ```
 
 ### 결과(실행 후 작성)
 
-- 충돌 발생 날짜: `<YYYY-MM-DD>`
-- 해결 커밋 URL: `<commit URL>`
-- 병합된 I6 PR URL: `<PR URL>`
-- 테스트 결과: `<tests run, failures>`
+- 충돌 발생 날짜: `2026-09-30`
+- 충돌 당시 김씨 브랜치 HEAD / 병합한 `origin/main`: `51797dc` / `8432dbd`
+- 해결 커밋 URL: `https://github.com/jeenee-cha/b2-2/commit/fb02e6887babc6891ae113ef32b60501eb5f9e55`
+- 병합된 I6 PR URL: `https://github.com/jeenee-cha/b2-2/pull/15` (리뷰 중, 병합 후 갱신)
+- 테스트 결과: `Ran 9 tests ... OK`, README 충돌 마커 검색 결과 없음
 - 선택 이유: 차씨의 GitHub Flow 설명과 김씨의 개인 기여·리뷰 목적을 모두 보존하기 위해 두 문장을 합쳤습니다.
-- 배운 점: `<실제 배운 점>`
+- 배운 점: 같은 줄을 양쪽이 다르게 바꾸면 Git이 자동으로 고르지 않고 해당 파일만 `Unmerged paths`로 멈춥니다. 같은 merge에서 겹치지 않는 변경(`docs/conflict-resolution.md`, rename)은 자동으로 합쳐져 staged 상태로 들어오므로, 해결할 파일은 `git status`의 `both modified`로 좁혀 확인하면 됩니다.
 
 ---
 
