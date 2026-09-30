@@ -70,7 +70,7 @@ git switch -c feature/<담당자>-<작업>
 
 - type은 영어 소문자로 작성하고 콜론 뒤 설명은 한글로 작성합니다.
 - 명령어, 파일명, 함수명 같은 고유 식별자는 원문 표기를 허용합니다.
-- amend, reset, revert, stash의 상세 안전 기준은 김씨가 I3에서 추가합니다.
+- 커밋 단위와 amend, reset, revert, stash의 상세 안전 기준은 3.1절과 3.2절을 따릅니다.
 
 | type | 사용 시점 | 예시 |
 | --- | --- | --- |
@@ -93,6 +93,42 @@ final
 bug fix
 edit file
 ```
+
+### 3.1 커밋 단위와 메시지 상세 규칙
+
+- 한 커밋에는 한 가지 의도만 담습니다. 기능 코드와 그 기능의 테스트는 같은 커밋에 넣고, 문서 규칙 변경은 별도 커밋으로 나눕니다.
+- 리뷰 반영은 기존 커밋을 고치지 않고 새 커밋으로 추가합니다. 리뷰어가 무엇이 바뀌었는지 커밋 단위로 확인할 수 있어야 합니다.
+- 설명은 무엇이 어떻게 바뀌는지 드러나게 쓰고 `추가`, `수정`, `거부`, `명확화`처럼 명사형으로 끝냅니다. 끝에 마침표를 찍지 않습니다.
+- `git add .` 대신 이번 커밋에 넣을 파일만 지정하고, `git diff --staged`로 내용을 확인한 뒤 커밋합니다.
+- push 전에 `git log --oneline -5`로 메시지를 다시 확인합니다. 금지 예 형태의 메시지는 push 전에 3.2절의 amend로 고칩니다.
+
+| 구분 | 예시 | 이유 |
+| --- | --- | --- |
+| 좋은 예 | `fix: clamp 유틸리티의 역전된 범위 거부` | 대상 함수와 바뀐 동작이 드러남 |
+| 나쁜 예 | `fix: 버그 수정` | 무엇이 어떻게 바뀌는지 알 수 없음 |
+| 나쁜 예 | `docs: update` | 금지 예와 같고 설명이 한글이 아님 |
+
+### 3.2 복구 명령 안전 기준
+
+복구 명령을 실행하기 전에 현재 브랜치와 공유 여부를 먼저 확인합니다.
+
+```bash
+git status -sb                 # 현재 브랜치와 원격보다 앞선(ahead) 커밋 수 확인
+git log --oneline -3           # 대상 커밋의 hash와 메시지 확인
+git branch -r --contains HEAD  # 출력이 비어 있으면 아직 원격에 공유되지 않은 커밋
+```
+
+| 명령 | 사용하는 상황 | 사용 조건 | 금지 조건 |
+| --- | --- | --- | --- |
+| `git commit --amend` | 최근 커밋의 메시지나 빠뜨린 파일 수정 | push 전, 본인 feature 브랜치의 최근 커밋 1개 | 이미 push한 커밋, `main` |
+| `git reset --soft HEAD~1` | 최근 커밋을 취소하고 변경은 staged로 유지 | push 전 로컬 커밋 | 공유된 커밋, `main`, 다른 사람 브랜치 |
+| `git revert <hash>` | 이미 공유·병합된 변경 되돌리기 | 대상이 기능 커밋인지 `git show --stat <hash>`로 확인 | 팀 합의 없는 merge commit revert |
+| `git stash push -m "<설명>"` / `git stash pop` | 커밋하기 이른 변경을 잠시 보관하고 브랜치 전환 | 설명을 붙이고 `git stash list`로 보관 확인 | 설명 없는 stash를 오래 방치 |
+
+- revert 커밋 메시지도 3절 형식을 따릅니다. 기본 메시지 `Revert "..."`를 쓰지 않도록 `git revert --no-commit <hash>` 후 `git commit -m "revert: <되돌린 변경> 취소"`로 커밋합니다. `git revert`의 `-m`은 메시지가 아니라 merge commit의 부모 번호 옵션이므로 메시지 지정에 쓰지 않습니다.
+- `git stash pop`에서 충돌이 나면 stash는 목록에 남습니다. 충돌을 해결하고 결과를 확인한 뒤에만 `git stash drop`으로 지웁니다.
+- `git reset --hard`, `git push --force`, `git clean -fd`, 공유 브랜치 rebase는 변경을 잃거나 원격 히스토리를 바꾸므로 사용하지 않습니다.
+- 복구 명령을 실습하면 실행 전후 `git log --oneline`과 `git status` 출력을 `docs/troubleshooting-log.md`에 기록합니다.
 
 ## 4. 작업 시작 규칙
 
