@@ -100,7 +100,7 @@
 | --- | --- | --- | --- |
 | `git commit --amend` | 김씨 | 송씨 | amend 전후 출력 [docs/troubleshooting-log.md 시나리오 1](docs/troubleshooting-log.md) |
 | `git reset --soft HEAD~1` | 김씨 | 차씨 | reset 전후 출력 [docs/troubleshooting-log.md 시나리오 2](docs/troubleshooting-log.md) |
-| `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 [docs/troubleshooting-log.md 시나리오 3](docs/troubleshooting-log.md), 김씨 확인 https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460 |
+| `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 [docs/troubleshooting-log.md 시나리오 3](docs/troubleshooting-log.md), 김씨 확인 https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460 (재확인 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120) |
 | `git revert` | 차씨 | 송씨 | 원본 commit `<URL>`, revert commit `<URL>`, I8/I9 PR `<URL>` |
 
 ## Repository Settings Evidence
