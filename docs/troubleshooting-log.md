@@ -396,6 +396,8 @@ a7cb38e docs: stash 확인자 재확인 승인 링크 추가
 - 송씨의 리뷰: https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243
 - 차씨 답글: https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610
 - 반영 커밋: https://github.com/jeenee-cha/b2-2/commit/cbb1aa2afb4166907471f5562bb51cd79d384569
+- 송씨 재확인 Approve: https://github.com/jeenee-cha/b2-2/pull/22#pullrequestreview-5363955033
+- 병합 커밋: https://github.com/jeenee-cha/b2-2/commit/8693be594f6f68a800044c358fd54dc488522fda
 
 ### 선택 이유와 주의점
 
