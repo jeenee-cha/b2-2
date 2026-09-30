@@ -53,18 +53,19 @@
 
 | 구분 | 계획 ID | 증빙 |
 | --- | --- | --- |
-| 만든 Issue | I4 문자열 유틸 | `<Issue URL>` |
-| 만든 Issue | I7 충돌·stash | `<Issue URL>` |
-| 병합된 PR | I4 | `<PR URL>` |
-| 병합된 PR | I7 | `<PR URL>` |
-| 타인 PR 리뷰 | 차씨 I1 | `<Review URL>` |
-| 타인 PR 리뷰 | 김씨 I3 | `<Review URL>` |
-| 타인 PR 리뷰 | 차씨 I8 | `<Review URL>` |
+| 만든 Issue | I4 문자열 유틸 | https://github.com/jeenee-cha/b2-2/issues/9 |
+| 만든 Issue | I7 충돌·stash | https://github.com/jeenee-cha/b2-2/issues/11 |
+| 병합된 PR | I4 | https://github.com/jeenee-cha/b2-2/pull/10 |
+| 병합된 PR | I7 | https://github.com/jeenee-cha/b2-2/pull/16 |
+| 타인 PR 리뷰 | 차씨 I1 | https://github.com/jeenee-cha/b2-2/pull/4#discussion_r4140844332 (Approve https://github.com/jeenee-cha/b2-2/pull/4#pullrequestreview-5361514603) |
+| 타인 PR 리뷰 | 김씨 I3 | https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140957544 (재확인 https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140990924) |
+| 타인 PR 리뷰 | 차씨 I8 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142226942 |
 | 타인 PR 리뷰 | 차씨 I9 | `<Review URL>` |
-| 본인 PR 리뷰 반영 | I4 또는 I7 | `<Reply URL>` / `<Follow-up commit URL>` |
-| 협업 가이드 작성 | I4 · PR/리뷰 규칙 | `<Commit URL>` |
-| 결과물 기여 | `normalize_whitespace` | `<Commit URL>` |
-| 트러블슈팅 | `stash`, `stash pop` | `<troubleshooting heading/commit URL>` |
+| 본인 PR 리뷰 반영 | I4 | https://github.com/jeenee-cha/b2-2/pull/10#discussion_r4141216439 / https://github.com/jeenee-cha/b2-2/commit/042ffc640cd25f831ace55ef8d50d06f6a716d6c, https://github.com/jeenee-cha/b2-2/commit/be1a8bc5d80ce6752033ddab277e4d500f6b8dd1 |
+| 본인 PR 리뷰 반영 | I7 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 / https://github.com/jeenee-cha/b2-2/commit/22cb89536facdabcf0ba5c840dcf47552398c334 |
+| 협업 가이드 작성 | I4 · PR/리뷰 규칙 | https://github.com/jeenee-cha/b2-2/commit/3faed90eafdfaa7903a8a252e2eb0e5c84a74834 |
+| 결과물 기여 | `normalize_whitespace` | https://github.com/jeenee-cha/b2-2/commit/96566b9642d9c4a321c8113a03ba01bc11513f4b |
+| 트러블슈팅 | `stash`, `stash pop` | [docs/troubleshooting-log.md 시나리오 3](docs/troubleshooting-log.md), 기록 커밋 https://github.com/jeenee-cha/b2-2/commit/33e761ee5181853e409ec4a992e9887ff9483f59 |
 
 ## PR Quality Matrix
 
@@ -73,10 +74,10 @@
 | I1 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I2 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I3 | https://github.com/jeenee-cha/b2-2/pull/8 | #7 | 확인 | https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140957544 | https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140981981 | 송씨 Approve·Merged |
-| I4 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I4 | https://github.com/jeenee-cha/b2-2/pull/10 | #9 | 확인 | https://github.com/jeenee-cha/b2-2/pull/10#discussion_r4141120068 | https://github.com/jeenee-cha/b2-2/pull/10#discussion_r4141216439 | 차씨 Approve·Merged |
 | I5 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I6 | https://github.com/jeenee-cha/b2-2/pull/15 | #12 | 확인 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 | 리뷰 중 | 리뷰 중 |
-| I7 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I7 | https://github.com/jeenee-cha/b2-2/pull/16 | #11 | 확인 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142041754 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 | 김씨 Approve·Merged |
 | I8 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I9 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 
@@ -91,7 +92,7 @@
 | 충돌 | 참여자 | 브랜치 | 증빙 |
 | --- | --- | --- | --- |
 | 같은 hunk 충돌 | 차씨·김씨 | `feature/kim-conflict-troubleshooting` | 상태/마커 [docs/conflict-resolution.md 충돌 기록 #1](docs/conflict-resolution.md), 해결 커밋 https://github.com/jeenee-cha/b2-2/commit/fb02e6887babc6891ae113ef32b60501eb5f9e55, I6 PR https://github.com/jeenee-cha/b2-2/pull/15 (리뷰 중) |
-| rename/modify 충돌 | 차씨·송씨 | `feature/song-conflict-troubleshooting` | 상태/마커 `<URL>`, 해결 커밋 `<URL>`, I7 PR `<URL>` |
+| rename/modify 충돌 | 차씨·송씨 | `feature/song-conflict-troubleshooting` | 상태/마커 [docs/conflict-resolution.md 충돌 기록 #2](docs/conflict-resolution.md), 해결 커밋 https://github.com/jeenee-cha/b2-2/commit/33e761ee5181853e409ec4a992e9887ff9483f59, I7 PR https://github.com/jeenee-cha/b2-2/pull/16 |
 
 ## Troubleshooting Evidence
 
@@ -99,7 +100,7 @@
 | --- | --- | --- | --- |
 | `git commit --amend` | 김씨 | 송씨 | amend 전후 출력 [docs/troubleshooting-log.md 시나리오 1](docs/troubleshooting-log.md) |
 | `git reset --soft HEAD~1` | 김씨 | 차씨 | reset 전후 출력 [docs/troubleshooting-log.md 시나리오 2](docs/troubleshooting-log.md) |
-| `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 `<URL 또는 문서 위치>` |
+| `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 [docs/troubleshooting-log.md 시나리오 3](docs/troubleshooting-log.md), 김씨 확인 https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460 (재확인 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120) |
 | `git revert` | 차씨 | 송씨 | 원본 commit `<URL>`, revert commit `<URL>`, I8/I9 PR `<URL>` |
 
 ## Repository Settings Evidence
