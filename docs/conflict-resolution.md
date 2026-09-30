@@ -31,7 +31,7 @@ git rev-parse --short "$(git merge-base origin/main origin/feature/song-conflict
 - 충돌 변경 작성자·해결자: 김씨
 - 기준 변경 작성자: 차씨
 - 검증자: 차씨
-- 김씨 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `<I6 PR URL>`
+- 김씨 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `https://github.com/jeenee-cha/b2-2/pull/15`
 - 차씨 기준 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/13` / `https://github.com/jeenee-cha/b2-2/pull/14`
 
 ### 재현용 변경
@@ -133,8 +133,8 @@ git push
 
 - 충돌 발생 날짜: `2026-09-30`
 - 충돌 당시 김씨 브랜치 HEAD / 병합한 `origin/main`: `51797dc` / `8432dbd`
-- 해결 커밋 URL: `<commit URL>`
-- 병합된 I6 PR URL: `<PR URL>`
+- 해결 커밋 URL: `https://github.com/jeenee-cha/b2-2/commit/fb02e6887babc6891ae113ef32b60501eb5f9e55`
+- 병합된 I6 PR URL: `https://github.com/jeenee-cha/b2-2/pull/15` (리뷰 중, 병합 후 갱신)
 - 테스트 결과: `Ran 9 tests ... OK`, README 충돌 마커 검색 결과 없음
 - 선택 이유: 차씨의 GitHub Flow 설명과 김씨의 개인 기여·리뷰 목적을 모두 보존하기 위해 두 문장을 합쳤습니다.
 - 배운 점: 같은 줄을 양쪽이 다르게 바꾸면 Git이 자동으로 고르지 않고 해당 파일만 `Unmerged paths`로 멈춥니다. 같은 merge에서 겹치지 않는 변경(`docs/conflict-resolution.md`, rename)은 자동으로 합쳐져 staged 상태로 들어오므로, 해결할 파일은 `git status`의 `both modified`로 좁혀 확인하면 됩니다.

@@ -18,7 +18,7 @@
 - 실행·기록: 김씨
 - 확인: 송씨
 - 브랜치: `feature/kim-conflict-troubleshooting`
-- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `<I6 PR URL>`
+- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `https://github.com/jeenee-cha/b2-2/pull/15`
 
 ### 상황
 
@@ -90,7 +90,7 @@ e5d3953 HEAD@{0}: commit (amend): docs: 김씨 버전 프로젝트 설명 준비
 - 실행·기록: 김씨
 - 확인: 차씨
 - 브랜치: `feature/kim-conflict-troubleshooting`
-- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `<I6 PR URL>`
+- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/12` / `https://github.com/jeenee-cha/b2-2/pull/15`
 
 ### 상황
 
@@ -129,7 +129,7 @@ git push
 - reset 후 HEAD: `e5d3953 docs: 김씨 버전 프로젝트 설명 준비`
 - reset 직후 `git status`: `Changes to be committed: modified: docs/troubleshooting-log.md`
 - 변경이 보존된 파일: `docs/troubleshooting-log.md` (시나리오 1 실제 결과 34줄 추가분이 staged 상태로 유지)
-- 다시 작성한 커밋 URL: `<commit URL>` (push 후 기록)
+- 다시 작성한 커밋 URL: `https://github.com/jeenee-cha/b2-2/commit/51797dc28ff312a9d3879fabf7963307452e8188`
 
 실제 터미널 출력:
 
@@ -158,7 +158,7 @@ cda3d7b HEAD@{1}: commit: docs: 소프트 리셋 실습 기록 초안
 ```
 
 `cda3d7b`는 push 전에 취소되어 원격에 존재하지 않습니다.
-- 확인자 차씨의 리뷰 URL: `<review URL>`
+- 확인자 차씨의 리뷰 URL: `https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386`
 
 ### 선택 이유와 주의점
 

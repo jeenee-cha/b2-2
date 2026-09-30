@@ -40,7 +40,7 @@
 | 만든 Issue | I3 수학 유틸 | https://github.com/jeenee-cha/b2-2/issues/7 |
 | 만든 Issue | I6 충돌·로컬 복구 | https://github.com/jeenee-cha/b2-2/issues/12 |
 | 병합된 PR | I3 | https://github.com/jeenee-cha/b2-2/pull/8 |
-| 병합된 PR | I6 | `<PR URL>` |
+| 병합된 PR | I6 | https://github.com/jeenee-cha/b2-2/pull/15 (리뷰 중) |
 | 타인 PR 리뷰 | 차씨 I2 | https://github.com/jeenee-cha/b2-2/pull/6#discussion_r4140886338 |
 | 타인 PR 리뷰 | 차씨 I5 | https://github.com/jeenee-cha/b2-2/pull/14#pullrequestreview-5362584751 |
 | 타인 PR 리뷰 | 송씨 I7 | `<Review URL>` |
@@ -75,7 +75,7 @@
 | I3 | https://github.com/jeenee-cha/b2-2/pull/8 | #7 | 확인 | https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140957544 | https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140981981 | 송씨 Approve·Merged |
 | I4 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I5 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
-| I6 | `<URL>` | #12 | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I6 | https://github.com/jeenee-cha/b2-2/pull/15 | #12 | 확인 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 | 리뷰 중 | 리뷰 중 |
 | I7 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I8 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
 | I9 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
@@ -90,7 +90,7 @@
 
 | 충돌 | 참여자 | 브랜치 | 증빙 |
 | --- | --- | --- | --- |
-| 같은 hunk 충돌 | 차씨·김씨 | `feature/kim-conflict-troubleshooting` | 상태/마커 [docs/conflict-resolution.md 충돌 기록 #1](docs/conflict-resolution.md), 해결 커밋 https://github.com/jeenee-cha/b2-2/commit/fb02e68, I6 PR `<URL>` |
+| 같은 hunk 충돌 | 차씨·김씨 | `feature/kim-conflict-troubleshooting` | 상태/마커 [docs/conflict-resolution.md 충돌 기록 #1](docs/conflict-resolution.md), 해결 커밋 https://github.com/jeenee-cha/b2-2/commit/fb02e6887babc6891ae113ef32b60501eb5f9e55, I6 PR https://github.com/jeenee-cha/b2-2/pull/15 (리뷰 중) |
 | rename/modify 충돌 | 차씨·송씨 | `feature/song-conflict-troubleshooting` | 상태/마커 `<URL>`, 해결 커밋 `<URL>`, I7 PR `<URL>` |
 
 ## Troubleshooting Evidence
