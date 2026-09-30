@@ -11,6 +11,9 @@ class UniquePreserveOrderTest(unittest.TestCase):
 
         self.assertEqual(result, [3, 1, 2])
 
+    def test_returns_empty_list_for_empty_input(self):
+        self.assertEqual(unique_preserve_order([]), [])
+
 
 if __name__ == "__main__":
     unittest.main()
