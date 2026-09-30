@@ -204,7 +204,7 @@ git status
 - `stash pop` 출력: `README.md`가 다시 `modified`로 복원되고 `Dropped refs/stash@{0} (9d3a57f85a7d8f066a87d376a3da004cf5a12e83)` 표시
 - pop 후 복원 파일과 충돌 여부: `README.md` 끝의 `stash practice in progress` 한 줄만 복원, 충돌 없음. 보관 중 `main`은 `82df3ef..ae9ee58`로 fast-forward되었지만 feature 브랜치의 기존 커밋 `e251744`는 그대로 유지
 - 임시 한 줄 제거 확인: 해당 줄 삭제 후 `git status --short`와 `git diff --stat` 출력 없음
-- 확인자 김씨의 리뷰 URL: `(리뷰 후 갱신)`
+- 확인자 김씨의 리뷰 URL: `https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460`
 
 실제 터미널 출력:
 

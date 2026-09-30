@@ -267,6 +267,18 @@ git push
 - 병합된 I7 PR URL: `https://github.com/jeenee-cha/b2-2/pull/16` (리뷰 중, 병합 후 갱신)
 - 최종 파일 URL: `https://github.com/jeenee-cha/b2-2/blob/main/docs/merge-conflict-demo.md`
 - 최종 파일 확인: `docs/conflict-demo.md`는 삭제되고 `docs/merge-conflict-demo.md`만 남음, 충돌 마커 검색 결과 없음
+
+  ```text
+  $ test -f docs/merge-conflict-demo.md && echo "renamed file exists"
+  renamed file exists
+  $ test ! -e docs/conflict-demo.md && echo "old path removed"
+  old path removed
+  $ git ls-files docs/conflict-demo.md docs/merge-conflict-demo.md
+  docs/merge-conflict-demo.md
+  $ grep -n "<<<<<<<\|=======\|>>>>>>>" docs/merge-conflict-demo.md
+  (출력 없음, 종료 코드 1)
+  ```
+
 - 테스트 결과: `Ran 9 tests ... OK`
 - 선택 이유: rename 의도와 송씨의 내용 변경을 모두 보존하기 위해 새 경로에 합친 내용을 남겼습니다.
 - 배운 점: 한쪽이 파일을 옮기고 다른 쪽이 옛 경로에서 내용을 바꿔도, 내용이 충분히 비슷하면 Git이 rename을 추적해 변경을 새 경로로 옮겨 합칩니다. 이번에는 같은 줄까지 바뀌어 `both modified: docs/merge-conflict-demo.md`로 멈췄으므로, 새 경로에서 두 문장을 합치고 옛 경로가 다시 생기지 않았는지 `git status`로 확인하는 것이 핵심이었습니다.
