@@ -4,7 +4,7 @@
 
 ## Team
 
-- 팀명: 차김송 Git Flow 팀
+- 팀명: b2-2 팀
 - GitHub 저장소: `https://github.com/jeenee-cha/b2-2`
 - 선택 결과물: Python 유틸 함수 모음
 - 팀원: 차씨(리드), 김씨, 송씨
@@ -106,10 +106,13 @@
 
 ## Repository Settings Evidence
 
-- `main` 직접 push 제한: GitHub Branch Protection API 확인(`required_pull_request_reviews` 활성)
-- PR을 통한 병합 필수: GitHub Branch Protection API 확인(`required_pull_request_reviews` 활성)
-- 최소 1명 승인 필수: GitHub Branch Protection API 확인(`required_approving_review_count: 1`)
-- force push 금지 및 관리자 우회 제한: GitHub Branch Protection API 확인(`allow_force_pushes.enabled: false`, `enforce_admins.enabled: true`)
+확인 명령: `gh api repos/jeenee-cha/b2-2/branches/main/protection`
+
+- `main` 직접 push 제한 및 PR 병합 필수: `required_pull_request_reviews` 활성
+- 최소 1명 승인 필수: `required_approving_review_count: 1`
+- force push 금지: `allow_force_pushes.enabled: false`
+- 관리자 우회 제한: `enforce_admins.enabled: true`
+- 브랜치 삭제 금지: `allow_deletions.enabled: false`
 
 ## Test Evidence
 
@@ -145,7 +148,7 @@ git log --oneline --graph --all > docs/git-history.txt
 - [ ] I1~I9 모든 PR에 What, Why, How, `Closes #번호`가 있음
 - [ ] 모든 PR에 실질 코멘트와 작성자-리뷰어 상호작용이 있음
 - [x] 충돌 2회와 비자명 충돌 증빙이 있음
-- [ ] amend, reset-soft, stash/pop, revert 실제 결과가 있음
+- [x] amend, reset-soft, stash/pop, revert 실제 결과가 있음
 - [x] 세 사람의 유틸 함수와 테스트가 `main`에 있음
 - [x] Branch Protection 네 항목과 Git 히스토리 증빙이 있음
 - [ ] 모든 자리표시자를 실제 값으로 교체함
