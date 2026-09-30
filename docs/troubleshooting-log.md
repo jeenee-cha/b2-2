@@ -173,7 +173,7 @@ cda3d7b HEAD@{1}: commit: docs: 소프트 리셋 실습 기록 초안
 - 실행·기록: 송씨
 - 확인: 김씨
 - 브랜치: `feature/song-conflict-troubleshooting`
-- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/11` / `(PR 생성 후 갱신)`
+- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/11` / `https://github.com/jeenee-cha/b2-2/pull/16`
 
 ### 상황
 

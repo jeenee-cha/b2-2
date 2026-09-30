@@ -148,7 +148,7 @@ git push
 - 내용 변경 작성자·해결자: 송씨
 - 파일 rename 및 기준 변경 작성자: 차씨
 - 검증자: 김씨
-- 송씨 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/11` / `(PR 생성 후 갱신)`
+- 송씨 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/11` / `https://github.com/jeenee-cha/b2-2/pull/16`
 - 차씨 기준 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/13` / `https://github.com/jeenee-cha/b2-2/pull/14`
 
 ### 재현용 변경
@@ -263,8 +263,8 @@ git push
 
 - 충돌 발생 날짜: `2026-09-30`
 - 충돌 당시 송씨 브랜치 HEAD / 병합한 `origin/main`: `e251744` / `ae9ee58` (분기점 `82df3ef`)
-- 해결 커밋 URL: `(push 후 갱신)`
-- 병합된 I7 PR URL: `(PR 생성 후 갱신)`
+- 해결 커밋 URL: `https://github.com/jeenee-cha/b2-2/commit/33e761ee5181853e409ec4a992e9887ff9483f59`
+- 병합된 I7 PR URL: `https://github.com/jeenee-cha/b2-2/pull/16` (리뷰 중, 병합 후 갱신)
 - 최종 파일 URL: `https://github.com/jeenee-cha/b2-2/blob/main/docs/merge-conflict-demo.md`
 - 최종 파일 확인: `docs/conflict-demo.md`는 삭제되고 `docs/merge-conflict-demo.md`만 남음, 충돌 마커 검색 결과 없음
 - 테스트 결과: `Ran 9 tests ... OK`
