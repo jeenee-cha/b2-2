@@ -80,7 +80,7 @@
 | I6 | https://github.com/jeenee-cha/b2-2/pull/15 | #12 | 확인 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 | https://github.com/jeenee-cha/b2-2/pull/15#discussion_r4141889202 | 차씨 Approve https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362912238 · Merged |
 | I7 | https://github.com/jeenee-cha/b2-2/pull/16 | #11 | 확인 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142041754 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 | 김씨 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120 · Merged |
 | I8 | https://github.com/jeenee-cha/b2-2/pull/18 | #17 | 확인 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142226942 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142259378 | 송씨 Approve https://github.com/jeenee-cha/b2-2/pull/18#pullrequestreview-5363360492 · Merged |
-| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610 (반영 커밋 URL은 다음 커밋에서 추가) | 송씨 재확인 후 추가 |
+| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610 / https://github.com/jeenee-cha/b2-2/commit/cbb1aa2afb4166907471f5562bb51cd79d384569 | 송씨 재확인 후 추가 |
 
 ## Key Documents
 
