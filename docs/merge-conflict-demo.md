@@ -4,4 +4,4 @@
 
 ## Shared Message
 
-세 명이 Git의 변경 흐름을 함께 연습합니다.
+차씨는 파일 이동 담당으로 rename/modify 충돌을 준비합니다.
