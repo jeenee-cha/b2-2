@@ -1,0 +1,67 @@
+* bffe69c docs: 제출 인덱스와 히스토리 증빙 정리
+* c92f240 docs: revert 실습 결과 기록 보완
+* 68e84b8 revert: 공유된 실습용 임시 문서 취소
+*   b514e49 Merge pull request #20 from jeenee-cha/feature/song-submission-evidence
+|\  
+| * a7cb38e docs: stash 확인자 재확인 승인 링크 추가
+| * 41d7b31 docs: 송씨 제출 증빙 링크 추가
+* |   78183ef Merge pull request #18 from jeenee-cha/feature/cha-revert-seed
+|\ \  
+| |/  
+|/|   
+| * 765bf66 docs: revert 실습용 임시 문서 추가
+|/  
+*   09b34ad chore: PR #16 rename/modify 충돌 해결과 stash 기록 병합
+|\  
+| * 22cb895 docs: rename 충돌 후 최종 경로 확인 결과 추가
+| * 764e547 docs: I7 충돌·stash 증빙 링크 추가
+| *   33e761e docs: rename/modify 충돌 해결
+| |\  
+| |/  
+|/|   
+* |   ae9ee58 Merge pull request #15 from jeenee-cha/feature/kim-conflict-troubleshooting
+|\ \  
+| * | ff569c8 docs: I6 충돌·복구 증빙 링크 보완
+| * | 47f776e docs: 김씨 제출 증빙 링크 추가
+| * |   fb02e68 docs: README 같은 hunk 충돌 해결
+| |\ \  
+| |/ /  
+|/| |   
+* | |   8432dbd Merge pull request #14 from jeenee-cha/feature/cha-conflict-baseline
+|\ \ \  
+| * | | a812ba9 docs: 충돌 브랜치 선행 조건 명확화
+| * | | cba3a88 docs: 의도적 충돌 기준 준비
+|/ / /  
+| * | 51797dc docs: amend 및 soft reset 실습 기록
+| * | e5d3953 docs: 김씨 버전 프로젝트 설명 준비
+|/ /  
+| * e251744 docs: 충돌 실습 문서의 송씨 공유 메시지 작성
+|/  
+*   82df3ef Merge pull request #10 from jeenee-cha/feature/song-string-utils
+|\  
+| * be1a8bc test: 문자열 유틸리티 테스트 파일 끝 개행 추가
+| * 042ffc6 test: 문자열 유틸리티 테스트 파일 끝 공백 제거
+| * 3faed90 docs: 풀 리퀘스트 리뷰 규칙 명확화
+| * 96566b9 feat: 공백 정규화 유틸리티 추가
+|/  
+*   ea5800a Merge pull request #8 from jeenee-cha/feature/kim-math-utils
+|\  
+| * 1154001 fix: clamp 유틸리티의 역전된 범위 거부
+| * 4bac42b docs: 커밋 및 복구 규칙 명확화
+| * f3e9a80 feat: 숫자 범위 제한 유틸리티 추가
+|/  
+*   8505138 Merge pull request #6 from jeenee-cha/feature/cha-list-utils
+|\  
+| * 1401156 test: 목록 유틸리티의 빈 입력 검증 추가
+| * 6cb1cbe feat: 입력 순서를 유지하는 목록 유틸리티 추가
+|/  
+*   dc7b8ca Merge pull request #4 from jeenee-cha/feature/cha-contributing-guide
+|\  
+| * 0875943 docs: 협업 가이드의 충돌 담당 절차 명확화
+| * f97665b docs: 팀의 GitHub Flow 협업 규칙 정의
+|/  
+*   cd1418c Merge pull request #2 from jeenee-cha/feature/cha-issue-template
+|\  
+| * a8ae810 fix: expose task template in issue chooser
+|/  
+* b360058 chore: initialize Git collaboration mission
