@@ -173,7 +173,7 @@ cda3d7b HEAD@{1}: commit: docs: 소프트 리셋 실습 기록 초안
 - 실행·기록: 송씨
 - 확인: 김씨
 - 브랜치: `feature/song-conflict-troubleshooting`
-- 관련 Issue/PR: `<I7 Issue URL>` / `<I7 PR URL>`
+- 관련 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/11` / `https://github.com/jeenee-cha/b2-2/pull/16`
 
 ### 상황
 
@@ -198,13 +198,96 @@ git status
 
 ### 실제 결과(송씨 작성)
 
-- 실행 날짜: `<YYYY-MM-DD>`
-- stash 전 `git status`: `<실제 출력>`
-- `git stash list`: `<실제 출력>`
-- `stash pop` 출력: `<실제 출력>`
-- pop 후 복원 파일과 충돌 여부: `<실제 결과>`
-- 임시 한 줄 제거 확인: `<git diff 또는 git status 결과>`
-- 확인자 김씨의 리뷰 URL: `<review URL>`
+- 실행 날짜: `2026-09-30`
+- stash 전 `git status`: `README.md`만 `Changes not staged for commit`의 `modified`로 표시
+- `git stash list`: `stash@{0}: On feature/song-conflict-troubleshooting: song: stash temporary README note`
+- `stash pop` 출력: `README.md`가 다시 `modified`로 복원되고 `Dropped refs/stash@{0} (9d3a57f85a7d8f066a87d376a3da004cf5a12e83)` 표시
+- pop 후 복원 파일과 충돌 여부: `README.md` 끝의 `stash practice in progress` 한 줄만 복원, 충돌 없음. 보관 중 `main`은 `82df3ef..ae9ee58`로 fast-forward되었지만 feature 브랜치의 기존 커밋 `e251744`는 그대로 유지
+- 임시 한 줄 제거 확인: 해당 줄 삭제 후 `git status --short`와 `git diff --stat` 출력 없음
+- 확인자 김씨의 리뷰 URL: `https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460`
+
+실제 터미널 출력:
+
+```text
+$ git status
+On branch feature/song-conflict-troubleshooting
+Your branch is up to date with 'origin/feature/song-conflict-troubleshooting'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git stash push -m "song: stash temporary README note"
+Saved working directory and index state On feature/song-conflict-troubleshooting: song: stash temporary README note
+
+$ git stash list
+stash@{0}: On feature/song-conflict-troubleshooting: song: stash temporary README note
+
+$ git switch main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 9 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+$ git pull --ff-only origin main
+From https://github.com/jeenee-cha/b2-2
+ * branch            main       -> FETCH_HEAD
+Updating 82df3ef..ae9ee58
+Fast-forward
+ README.md                                         |  2 +-
+ SUBMISSION.md                                     | 30 ++++----
+ docs/conflict-resolution.md                       | 60 ++++++++++++---
+ docs/{conflict-demo.md => merge-conflict-demo.md} |  2 +-
+ docs/troubleshooting-log.md                       | 91 +++++++++++++++++++----
+ 5 files changed, 140 insertions(+), 45 deletions(-)
+ rename docs/{conflict-demo.md => merge-conflict-demo.md} (72%)
+
+$ git switch feature/song-conflict-troubleshooting
+Switched to branch 'feature/song-conflict-troubleshooting'
+Your branch is up to date with 'origin/feature/song-conflict-troubleshooting'.
+
+$ git stash pop
+On branch feature/song-conflict-troubleshooting
+Your branch is up to date with 'origin/feature/song-conflict-troubleshooting'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (9d3a57f85a7d8f066a87d376a3da004cf5a12e83)
+
+$ git status
+On branch feature/song-conflict-troubleshooting
+Your branch is up to date with 'origin/feature/song-conflict-troubleshooting'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git diff
+diff --git a/README.md b/README.md
+index d6496b4..46f1a35 100644
+--- a/README.md
++++ b/README.md
+@@ -79,3 +79,4 @@ b2-2/
+ - [ ] `amend`, `reset --soft`, `revert`, `stash/pop`을 실제로 실행하고 기록
+ - [ ] Branch Protection 설정과 `git log --oneline --graph --all` 증빙 확보
+ - [ ] `SUBMISSION.md`의 모든 자리표시자를 실제 링크로 교체
++stash practice in progress
+
+# README.md 끝의 임시 한 줄만 삭제
+$ git status --short
+$ git diff --stat
+```
+
+마지막 두 명령은 모두 출력이 없어, 임시 한 줄만 제거되고 다른 변경은 남지 않았음을 확인했습니다.
 
 ### 선택 이유와 주의점
 

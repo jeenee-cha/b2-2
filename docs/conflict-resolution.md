@@ -148,8 +148,8 @@ git push
 - 내용 변경 작성자·해결자: 송씨
 - 파일 rename 및 기준 변경 작성자: 차씨
 - 검증자: 김씨
-- 송씨 Issue/PR: `<I7 Issue URL>` / `<I7 PR URL>`
-- 차씨 기준 Issue/PR: `<I5 Issue URL>` / `<I5 PR URL>`
+- 송씨 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/11` / `https://github.com/jeenee-cha/b2-2/pull/16`
+- 차씨 기준 Issue/PR: `https://github.com/jeenee-cha/b2-2/issues/13` / `https://github.com/jeenee-cha/b2-2/pull/14`
 
 ### 재현용 변경
 
@@ -165,7 +165,7 @@ git pull --ff-only origin main
 git switch -c feature/song-conflict-troubleshooting
 # VS Code에서 docs/conflict-demo.md의 Shared Message 수정
 git add docs/conflict-demo.md
-git commit -m "docs: prepare Song version of conflict demo"
+git commit -m "docs: 충돌 실습 문서의 송씨 공유 메시지 작성"
 git push -u origin feature/song-conflict-troubleshooting
 ```
 
@@ -199,21 +199,46 @@ git status
 
 ### 실제 충돌 증빙
 
-`git status` 또는 Git의 `CONFLICT` 출력:
+`git status` 또는 Git의 `CONFLICT` 출력(병합 직전 송씨 브랜치 HEAD `e251744`, `origin/main` `ae9ee58`):
 
 ```text
-<실행 후 rename/modify 또는 content conflict 관련 출력을 붙여넣기>
+$ git fetch origin
+$ git merge origin/main
+Auto-merging docs/merge-conflict-demo.md
+CONFLICT (content): Merge conflict in docs/merge-conflict-demo.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git status
+On branch feature/song-conflict-troubleshooting
+Your branch is up to date with 'origin/feature/song-conflict-troubleshooting'.
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+	modified:   README.md
+	modified:   SUBMISSION.md
+	deleted:    docs/conflict-demo.md
+	modified:   docs/conflict-resolution.md
+	modified:   docs/troubleshooting-log.md
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   docs/merge-conflict-demo.md
 ```
 
 충돌 마커가 생성됐다면 실제 내용을 붙여넣습니다.
 
 ```text
-<<<<<<< HEAD
-<송씨 브랜치 내용>
+<<<<<<< HEAD:docs/conflict-demo.md
+송씨는 내용 수정 담당으로 충돌 해결 과정을 기록합니다.
 =======
-<차씨가 rename하면서 수정한 내용>
->>>>>>> origin/main
+차씨는 파일 이동 담당으로 rename/modify 충돌을 준비합니다.
+>>>>>>> origin/main:docs/merge-conflict-demo.md
 ```
+
+Git이 `docs/conflict-demo.md` → `docs/merge-conflict-demo.md` rename을 감지해 송씨 변경을 새 경로로 옮긴 뒤, 같은 `Shared Message` 줄에서 content 충돌을 표시했습니다. 마커의 `HEAD:docs/conflict-demo.md`와 `origin/main:docs/merge-conflict-demo.md`가 각각 이전 경로와 새 경로를 가리킵니다.
 
 ### 합의한 최종 내용
 
@@ -228,20 +253,35 @@ git status
 ```bash
 git add -A -- docs/conflict-demo.md docs/merge-conflict-demo.md
 git add docs/conflict-resolution.md docs/troubleshooting-log.md
-git commit -m "docs: preserve demo content after file rename"
 python3 -m unittest discover -s tests -v
+grep -n "<<<<<<<\|=======\|>>>>>>>" docs/merge-conflict-demo.md
+git commit -m "docs: rename/modify 충돌 해결"
 git push
 ```
 
 ### 결과(실행 후 작성)
 
-- 충돌 발생 날짜: `<YYYY-MM-DD>`
-- 해결 커밋 URL: `<commit URL>`
-- 병합된 I7 PR URL: `<PR URL>`
-- 최종 파일 URL: `<docs/merge-conflict-demo.md URL>`
-- 테스트 결과: `<tests run, failures>`
+- 충돌 발생 날짜: `2026-09-30`
+- 충돌 당시 송씨 브랜치 HEAD / 병합한 `origin/main`: `e251744` / `ae9ee58` (분기점 `82df3ef`)
+- 해결 커밋 URL: `https://github.com/jeenee-cha/b2-2/commit/33e761ee5181853e409ec4a992e9887ff9483f59`
+- 병합된 I7 PR URL: `https://github.com/jeenee-cha/b2-2/pull/16` (리뷰 중, 병합 후 갱신)
+- 최종 파일 URL: `https://github.com/jeenee-cha/b2-2/blob/main/docs/merge-conflict-demo.md`
+- 최종 파일 확인: `docs/conflict-demo.md`는 삭제되고 `docs/merge-conflict-demo.md`만 남음, 충돌 마커 검색 결과 없음
+
+  ```text
+  $ test -f docs/merge-conflict-demo.md && echo "renamed file exists"
+  renamed file exists
+  $ test ! -e docs/conflict-demo.md && echo "old path removed"
+  old path removed
+  $ git ls-files docs/conflict-demo.md docs/merge-conflict-demo.md
+  docs/merge-conflict-demo.md
+  $ grep -n "<<<<<<<\|=======\|>>>>>>>" docs/merge-conflict-demo.md
+  (출력 없음, 종료 코드 1)
+  ```
+
+- 테스트 결과: `Ran 9 tests ... OK`
 - 선택 이유: rename 의도와 송씨의 내용 변경을 모두 보존하기 위해 새 경로에 합친 내용을 남겼습니다.
-- 배운 점: `<실제 배운 점>`
+- 배운 점: 한쪽이 파일을 옮기고 다른 쪽이 옛 경로에서 내용을 바꿔도, 내용이 충분히 비슷하면 Git이 rename을 추적해 변경을 새 경로로 옮겨 합칩니다. 이번에는 같은 줄까지 바뀌어 `both modified: docs/merge-conflict-demo.md`로 멈췄으므로, 새 경로에서 두 문장을 합치고 옛 경로가 다시 생기지 않았는지 `git status`로 확인하는 것이 핵심이었습니다.
 
 ## 기록 완료 확인
 
