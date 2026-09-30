@@ -1,0 +1,149 @@
+# Submission Index
+
+이 문서는 채점자가 저장소, 팀원별 기여, 리뷰 상호작용, 충돌 및 복구 실습 증빙을 한곳에서 확인할 수 있도록 만든 최종 인덱스입니다. `<...>` 자리표시자를 실제 GitHub URL과 실행 결과로 교체합니다.
+
+## Team
+
+- 팀명: `<팀명>`
+- GitHub 저장소: `https://github.com/jeenee-cha/b2-2`
+- 선택 결과물: Python 유틸 함수 모음
+- 팀원: 차씨(리드), 김씨, 송씨
+- Python 버전: `<python3 --version 결과>`
+
+## Member Evidence
+
+### 차씨
+
+| 구분 | 계획 ID | 증빙 |
+| --- | --- | --- |
+| 만든 Issue | I1 협업 규칙 | `<Issue URL>` |
+| 만든 Issue | I2 리스트 유틸 | `<Issue URL>` |
+| 만든 Issue | I5 충돌 기준 | `<Issue URL>` |
+| 만든 Issue | I8 revert 대상 | `<Issue URL>` |
+| 만든 Issue | I9 revert·제출 | `<Issue URL>` |
+| 병합된 PR | I1 | `<PR URL>` |
+| 병합된 PR | I2 | `<PR URL>` |
+| 병합된 PR | I5 | `<PR URL>` |
+| 병합된 PR | I8 | `<PR URL>` |
+| 병합된 PR | I9 | `<PR URL>` |
+| 타인 PR 리뷰 | 송씨 I4 | `<Review URL>` |
+| 타인 PR 리뷰 | 김씨 I6 | `<Review URL>` |
+| 본인 PR 리뷰 반영 | I1 또는 I2 | `<Reply URL>` / `<Follow-up commit URL>` |
+| 협업 가이드 작성 | I1 · GitHub Flow/브랜치/충돌 대응 | `<Commit URL>` |
+| 결과물 기여 | `unique_preserve_order` | `<Commit URL>` |
+| 트러블슈팅 | `git revert` | `<troubleshooting heading/commit URL>` |
+
+### 김씨
+
+| 구분 | 계획 ID | 증빙 |
+| --- | --- | --- |
+| 만든 Issue | I3 수학 유틸 | `<Issue URL>` |
+| 만든 Issue | I6 충돌·로컬 복구 | `<Issue URL>` |
+| 병합된 PR | I3 | `<PR URL>` |
+| 병합된 PR | I6 | `<PR URL>` |
+| 타인 PR 리뷰 | 차씨 I2 | `<Review URL>` |
+| 타인 PR 리뷰 | 차씨 I5 | `<Review URL>` |
+| 타인 PR 리뷰 | 송씨 I7 | `<Review URL>` |
+| 본인 PR 리뷰 반영 | I3 또는 I6 | `<Reply URL>` / `<Follow-up commit URL>` |
+| 협업 가이드 작성 | I3 · 커밋/복구 규칙 | `<Commit URL>` |
+| 결과물 기여 | `clamp` | `<Commit URL>` |
+| 트러블슈팅 | `amend`, `reset --soft` | `<troubleshooting heading/commit URL>` |
+
+### 송씨
+
+| 구분 | 계획 ID | 증빙 |
+| --- | --- | --- |
+| 만든 Issue | I4 문자열 유틸 | `<Issue URL>` |
+| 만든 Issue | I7 충돌·stash | `<Issue URL>` |
+| 병합된 PR | I4 | `<PR URL>` |
+| 병합된 PR | I7 | `<PR URL>` |
+| 타인 PR 리뷰 | 차씨 I1 | `<Review URL>` |
+| 타인 PR 리뷰 | 김씨 I3 | `<Review URL>` |
+| 타인 PR 리뷰 | 차씨 I8 | `<Review URL>` |
+| 타인 PR 리뷰 | 차씨 I9 | `<Review URL>` |
+| 본인 PR 리뷰 반영 | I4 또는 I7 | `<Reply URL>` / `<Follow-up commit URL>` |
+| 협업 가이드 작성 | I4 · PR/리뷰 규칙 | `<Commit URL>` |
+| 결과물 기여 | `normalize_whitespace` | `<Commit URL>` |
+| 트러블슈팅 | `stash`, `stash pop` | `<troubleshooting heading/commit URL>` |
+
+## PR Quality Matrix
+
+| ID | PR | `Closes #` | What/Why/How | 실질 리뷰 | 작성자 답글·반영 | Approve·Merged |
+| --- | --- | --- | --- | --- | --- | --- |
+| I1 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I2 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I3 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I4 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I5 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I6 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I7 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I8 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+| I9 | `<URL>` | `<#>` | `<확인>` | `<URL>` | `<URL>` | `<확인>` |
+
+## Key Documents
+
+- 협업 규칙: [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
+- 충돌 해결 기록: [docs/conflict-resolution.md](docs/conflict-resolution.md)
+- 트러블슈팅 기록: [docs/troubleshooting-log.md](docs/troubleshooting-log.md)
+
+## Conflict Evidence
+
+| 충돌 | 참여자 | 브랜치 | 증빙 |
+| --- | --- | --- | --- |
+| 같은 hunk 충돌 | 차씨·김씨 | `feature/kim-conflict-troubleshooting` | 상태/마커 `<URL>`, 해결 커밋 `<URL>`, I6 PR `<URL>` |
+| rename/modify 충돌 | 차씨·송씨 | `feature/song-conflict-troubleshooting` | 상태/마커 `<URL>`, 해결 커밋 `<URL>`, I7 PR `<URL>` |
+
+## Troubleshooting Evidence
+
+| 시나리오 | 실행자 | 확인자 | 증빙 |
+| --- | --- | --- | --- |
+| `git commit --amend` | 김씨 | 송씨 | amend 전후 출력 `<URL 또는 문서 위치>` |
+| `git reset --soft HEAD~1` | 김씨 | 차씨 | reset 전후 출력 `<URL 또는 문서 위치>` |
+| `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 `<URL 또는 문서 위치>` |
+| `git revert` | 차씨 | 송씨 | 원본 commit `<URL>`, revert commit `<URL>`, I8/I9 PR `<URL>` |
+
+## Repository Settings Evidence
+
+- `main` 직접 push 제한: `<Branch Protection screenshot URL>`
+- PR을 통한 병합 필수: `<Branch Protection screenshot URL>`
+- 최소 1명 승인 필수: `<Branch Protection screenshot URL>`
+- force push 금지 및 관리자 우회 제한: `<Branch Protection screenshot URL>`
+
+## Test Evidence
+
+최종 `main`에서 실행합니다.
+
+```bash
+python3 --version
+python3 -m unittest discover -s tests -v
+```
+
+- 테스트 결과: `<tests run, failures, errors>`
+- 테스트 실행 화면 또는 로그: `<URL 또는 붙여넣은 위치>`
+
+## Git History Evidence
+
+I9 PR에서 다음 명령으로 텍스트를 저장하고 이 문서에 링크합니다.
+
+```bash
+git fetch --all --prune
+git log --oneline --graph --all > docs/git-history.txt
+```
+
+- Git history text: `<docs/git-history.txt URL>`
+- 또는 스크린샷: `<screenshot URL>`
+
+## Final Checklist
+
+- [ ] GitHub 저장소 URL과 팀원 이름이 정확함
+- [ ] 차씨, 김씨, 송씨 모두 병합된 PR 2개 이상
+- [ ] 세 사람 모두 본인 PR 제외 실질 리뷰 2개 이상
+- [ ] 세 사람 모두 본인 PR에서 리뷰 반영 1회 이상
+- [ ] 세 사람 모두 `docs/CONTRIBUTING.md`에 직접 작성한 커밋 URL이 있음
+- [ ] I1~I9 모든 PR에 What, Why, How, `Closes #번호`가 있음
+- [ ] 모든 PR에 실질 코멘트와 작성자-리뷰어 상호작용이 있음
+- [ ] 충돌 2회와 비자명 충돌 증빙이 있음
+- [ ] amend, reset-soft, stash/pop, revert 실제 결과가 있음
+- [ ] 세 사람의 유틸 함수와 테스트가 `main`에 있음
+- [ ] Branch Protection 네 항목과 Git 히스토리 증빙이 있음
+- [ ] 모든 `<...>` 자리표시자를 실제 값으로 교체함

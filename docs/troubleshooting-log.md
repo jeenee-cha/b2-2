@@ -1,0 +1,234 @@
+# Troubleshooting Log
+
+이 문서는 실제로 실행한 Git 복구 명령을 재현 가능하게 남기는 기록지입니다. 명령을 실행하기 전에 현재 브랜치와 push 여부를 확인하고, 실행 직후 터미널 출력과 commit/PR URL을 해당 자리표시자에 붙여 넣습니다.
+
+## 안전 원칙
+
+- `amend`와 `reset --soft`는 push 전 김씨 개인 브랜치에서만 실행합니다.
+- 이미 원격과 `main`에 공유된 변경은 차씨가 별도 브랜치에서 `revert`합니다.
+- `reset --hard`, `push --force`, 공유 브랜치 rebase는 사용하지 않습니다.
+- 각 시나리오는 실행자 외 팀원 1명이 명령과 결과를 확인합니다.
+
+---
+
+## 시나리오 1 · 최근 로컬 커밋 메시지 수정 (`git commit --amend`)
+
+### 참여자와 위치
+
+- 실행·기록: 김씨
+- 확인: 송씨
+- 브랜치: `feature/kim-conflict-troubleshooting`
+- 관련 Issue/PR: `<I6 Issue URL>` / `<I6 PR URL>`
+
+### 상황
+
+김씨가 README 충돌용 문장을 수정한 뒤 최근 커밋 메시지를 의도적으로 `docs: update`라고 작성합니다. 이 메시지는 과제의 금지 예시이므로 원격에 push하기 전에 구체적으로 고칩니다.
+
+### 실행 명령
+
+```bash
+git status
+git add README.md
+git commit -m "docs: update"
+git log --oneline -1
+git commit --amend -m "docs: prepare Kim version of project description"
+git log --oneline -1
+```
+
+`git log` 두 번의 출력을 복사한 뒤에만 push합니다.
+
+```bash
+git push -u origin feature/kim-conflict-troubleshooting
+```
+
+### 실제 결과(김씨 작성)
+
+- 실행 날짜: `<YYYY-MM-DD>`
+- amend 전 hash·메시지: `<실제 출력>`
+- amend 후 hash·메시지: `<실제 출력>`
+- hash가 바뀐 이유: 커밋 객체의 메시지가 바뀌어 새 커밋으로 다시 만들어졌기 때문입니다.
+- 확인자 송씨의 확인 내용: `<확인 댓글 또는 문서 PR 리뷰 URL>`
+
+### 선택 이유와 주의점
+
+최근 로컬 커밋 하나의 메시지만 고치는 상황이므로 amend가 적절합니다. 이미 push한 커밋에 amend를 사용하면 원격과 다른 히스토리가 되어 force push가 필요할 수 있으므로 이번 실습에서는 금지합니다.
+
+---
+
+## 시나리오 2 · 커밋 취소 후 변경 유지 (`git reset --soft HEAD~1`)
+
+### 참여자와 위치
+
+- 실행·기록: 김씨
+- 확인: 차씨
+- 브랜치: `feature/kim-conflict-troubleshooting`
+- 관련 Issue/PR: `<I6 Issue URL>` / `<I6 PR URL>`
+
+### 상황
+
+김씨가 amend 기록을 문서에 적다가 설명이 부족한 상태로 커밋했습니다. 아직 push하지 않았고 파일 변경을 잃지 않은 채 커밋만 취소하여 보완하려고 합니다.
+
+### 실행 명령
+
+```bash
+# VS Code에서 이 시나리오의 실제 결과 초안을 작성
+git add docs/troubleshooting-log.md
+git commit -m "docs: draft soft reset practice record"
+git log --oneline -1
+git reset --soft HEAD~1
+git status
+# 설명과 실제 출력을 보완
+git add docs/troubleshooting-log.md
+git commit -m "docs: document amend and soft reset practice"
+git log --oneline -2
+```
+
+모든 명령 결과를 확인합니다. 이 commit은 I5를 merge하여 README 충돌을 해결한 commit과 함께 push합니다.
+
+```bash
+git fetch origin
+git merge origin/main
+# README 충돌 해결과 conflict-resolution 기록 후 commit
+git push
+```
+
+### 실제 결과(김씨 작성)
+
+- 실행 날짜: `<YYYY-MM-DD>`
+- reset으로 취소한 커밋 hash: `<hash>`
+- reset 직후 `git status`: `<Changes to be committed가 보이는 실제 출력>`
+- 변경이 보존된 파일: `<파일 목록>`
+- 다시 작성한 커밋 URL: `<commit URL>`
+- 확인자 차씨의 리뷰 URL: `<review URL>`
+
+### 선택 이유와 주의점
+
+커밋만 취소하고 변경을 staging area에 유지해야 하므로 `--soft`를 사용합니다. 이미 push한 커밋이나 공유 `main`에는 reset을 사용하지 않고 revert를 선택합니다.
+
+---
+
+## 시나리오 3 · 작업 임시 보관과 복원 (`git stash` / `git stash pop`)
+
+### 참여자와 위치
+
+- 실행·기록: 송씨
+- 확인: 김씨
+- 브랜치: `feature/song-conflict-troubleshooting`
+- 관련 Issue/PR: `<I7 Issue URL>` / `<I7 PR URL>`
+
+### 상황
+
+송씨가 작업 중 `README.md`에 임시 메모 한 줄을 추가했지만 아직 커밋할 내용은 아닙니다. 최신 `main`을 확인하기 위해 작업을 보관하고 브랜치를 전환한 뒤 다시 복원합니다.
+
+### 실행 명령
+
+먼저 VS Code에서 README에 `stash practice in progress`라는 임시 한 줄을 추가하되 stage하거나 commit하지 않습니다.
+
+```bash
+git status
+git stash push -m "song: stash temporary README note"
+git stash list
+git switch main
+git pull --ff-only origin main
+git switch feature/song-conflict-troubleshooting
+git stash pop
+git status
+```
+
+복원된 임시 한 줄과 다른 작업이 모두 있는지 확인한 뒤, 임시 한 줄만 삭제합니다. rename/modify 충돌 해결 전까지 기존 커밋은 그대로 유지합니다.
+
+### 실제 결과(송씨 작성)
+
+- 실행 날짜: `<YYYY-MM-DD>`
+- stash 전 `git status`: `<실제 출력>`
+- `git stash list`: `<실제 출력>`
+- `stash pop` 출력: `<실제 출력>`
+- pop 후 복원 파일과 충돌 여부: `<실제 결과>`
+- 임시 한 줄 제거 확인: `<git diff 또는 git status 결과>`
+- 확인자 김씨의 리뷰 URL: `<review URL>`
+
+### 선택 이유와 주의점
+
+완료되지 않은 변경을 의미 없는 커밋으로 남기지 않고 안전하게 브랜치를 전환하기 위해 stash를 사용합니다. `stash pop`도 충돌할 수 있으므로 반드시 출력과 `git status`를 확인합니다.
+
+---
+
+## 시나리오 4 · 원격과 main에 공유된 커밋 취소 (`git revert`)
+
+### 참여자와 위치
+
+- 실행·기록: 차씨
+- 확인·리뷰: 송씨
+- 대상 PR: I8 `feature/cha-revert-seed`
+- revert PR: I9 `feature/cha-revert-and-submission`
+
+### 1단계 · 되돌릴 커밋을 PR로 공유
+
+차씨가 I8 Issue를 만든 뒤 최신 `main`에서 임시 파일을 만듭니다.
+
+```bash
+git switch main
+git pull --ff-only origin main
+git switch -c feature/cha-revert-seed
+# VS Code에서 docs/revert-practice.md를 만들고 임시 설명 한 줄 작성
+git add docs/revert-practice.md
+git commit -m "docs: add temporary revert practice note"
+git push -u origin feature/cha-revert-seed
+```
+
+I8 PR에 `Closes #<I8 실제 번호>`를 넣고 송씨의 실질 리뷰와 Approve 후 **Create a merge commit**으로 병합합니다.
+
+### 2단계 · 실제 파일 추가 커밋 찾기
+
+```bash
+git switch main
+git pull --ff-only origin main
+git log --oneline --all -- docs/revert-practice.md
+```
+
+출력에서 메시지가 `docs: add temporary revert practice note`인 커밋 hash를 선택합니다. `Merge pull request ...` 커밋이 아니라 실제 파일 추가 커밋인지 다음 명령으로 확인합니다.
+
+```bash
+git show --stat <I8_FILE_ADD_COMMIT_HASH>
+```
+
+### 3단계 · 별도 브랜치에서 revert
+
+```bash
+git switch -c feature/cha-revert-and-submission
+git revert --no-edit <I8_FILE_ADD_COMMIT_HASH>
+git status
+git log --oneline -3
+git push -u origin feature/cha-revert-and-submission
+```
+
+revert 후 `docs/revert-practice.md`가 사라지고 다른 파일은 영향을 받지 않았는지 확인합니다. 같은 브랜치에서 이 시나리오의 실제 결과와 `SUBMISSION.md`를 보완하여 추가 커밋합니다.
+
+```bash
+git add docs/troubleshooting-log.md SUBMISSION.md
+git commit -m "docs: record revert practice and submission evidence"
+git push
+```
+
+### 실제 결과(차씨 작성)
+
+- 실행 날짜: `<YYYY-MM-DD>`
+- I8 Issue/PR URL: `<Issue URL>` / `<PR URL>`
+- 원본 파일 추가 커밋 URL: `<commit URL>`
+- revert 커밋 URL: `<commit URL>`
+- I9 Issue/PR URL: `<Issue URL>` / `<PR URL>`
+- 파일 삭제 및 다른 파일 무영향 확인: `<git status 또는 git show 출력>`
+- 송씨의 리뷰 및 차씨의 답글/반영 링크: `<review URL>` / `<reply or commit URL>`
+
+### 선택 이유와 주의점
+
+이미 원격과 `main`에 공유된 커밋은 reset으로 지우지 않고 반대 변경을 새 커밋으로 남기는 revert가 안전합니다. 대상이 merge commit이면 `-m` 옵션이 필요하므로, 이번 실습에서는 merge commit이 아니라 그 안의 실제 파일 추가 커밋 hash를 정확히 선택합니다.
+
+## 최종 확인
+
+- [ ] amend 전후 hash와 메시지가 있음
+- [ ] reset 전 커밋과 reset 후 staged 상태가 있음
+- [ ] stash 목록과 pop 결과가 있음
+- [ ] 원본 commit과 revert commit URL이 모두 있음
+- [ ] 네 시나리오에 차씨, 김씨, 송씨가 각각 실행자로 참여함
+- [ ] 모든 명령은 개인 feature 브랜치에서 실행되었고 force push가 없음
