@@ -6,8 +6,21 @@
 
 - 김씨의 `feature/kim-conflict-troubleshooting`과 송씨의 `feature/song-conflict-troubleshooting`은 I5가 병합되기 전에 최신 `main`에서 만들어져야 합니다.
 - 두 브랜치가 충돌 대상 변경을 commit하고 원격에 push한 것을 확인한 뒤 I5를 병합합니다.
+- I5가 병합되기 전에는 I6·I7 브랜치에서 `origin/main`을 merge하지 않습니다. 두 브랜치의 분기점을 기준 SHA로 유지하고, I5 병합 후 최초 merge에서 의도한 충돌을 재현하기 위해서입니다.
 - I5 브랜치: `feature/cha-conflict-baseline`
 - 공유 브랜치 rebase 또는 force push는 사용하지 않습니다.
+
+차씨는 I5를 시작하기 전에 다음 명령으로 두 원격 브랜치와 공통 기준 SHA를 확인합니다.
+
+```bash
+git fetch origin
+git ls-remote --heads origin feature/kim-conflict-troubleshooting feature/song-conflict-troubleshooting
+git rev-parse --short origin/main
+git rev-parse --short "$(git merge-base origin/main origin/feature/kim-conflict-troubleshooting)"
+git rev-parse --short "$(git merge-base origin/main origin/feature/song-conflict-troubleshooting)"
+```
+
+마지막 세 명령의 결과는 모두 I4 병합 직후 기준 SHA인 `82df3ef`이어야 합니다.
 
 ---
 
