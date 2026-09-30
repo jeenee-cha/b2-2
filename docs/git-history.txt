@@ -1,4 +1,4 @@
-* bffe69c docs: 제출 인덱스와 히스토리 증빙 정리
+* 7fd2cf1 docs: 제출 인덱스와 히스토리 증빙 정리
 * c92f240 docs: revert 실습 결과 기록 보완
 * 68e84b8 revert: 공유된 실습용 임시 문서 취소
 *   b514e49 Merge pull request #20 from jeenee-cha/feature/song-submission-evidence
