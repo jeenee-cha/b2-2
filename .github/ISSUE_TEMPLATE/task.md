@@ -1,6 +1,6 @@
 ---
-name: 작업
-about: 기능, 문서, 테스트, Git 실습 작업을 PR과 연결하기 위한 Issue
+name: "작업"
+about: "기능, 문서, 테스트, Git 실습 작업을 PR과 연결하기 위한 Issue"
 title: ""
 labels: ""
 assignees: ""
