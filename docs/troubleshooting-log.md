@@ -75,7 +75,7 @@ e5d3953 HEAD@{0}: commit (amend): docs: 김씨 버전 프로젝트 설명 준비
 ```
 
 - hash가 바뀐 이유: 커밋 객체의 메시지가 바뀌어 새 커밋으로 다시 만들어졌기 때문입니다.
-- 확인자 송씨의 확인 내용: `<확인 댓글 또는 문서 PR 리뷰 URL>`
+- 확인자 송씨의 확인 내용: `https://github.com/jeenee-cha/b2-2/pull/15#issuecomment-5906852904` (원격에 `e5d3953`만 있고 `4ece798 docs: update`는 없음을 확인)
 
 ### 선택 이유와 주의점
 
