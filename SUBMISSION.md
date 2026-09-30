@@ -25,7 +25,7 @@
 | 병합된 PR | I2 | https://github.com/jeenee-cha/b2-2/pull/6 |
 | 병합된 PR | I5 | https://github.com/jeenee-cha/b2-2/pull/14 |
 | 병합된 PR | I8 | https://github.com/jeenee-cha/b2-2/pull/18 |
-| 병합된 PR | I9 | https://github.com/jeenee-cha/b2-2/pull/22 (리뷰 진행 중) |
+| 병합된 PR | I9 | https://github.com/jeenee-cha/b2-2/pull/22 |
 | 타인 PR 리뷰 | 송씨 I4 | https://github.com/jeenee-cha/b2-2/pull/10#pullrequestreview-5361874224 |
 | 타인 PR 리뷰 | 김씨 I6 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 |
 | 본인 PR 리뷰 반영 | I1 | https://github.com/jeenee-cha/b2-2/pull/4#discussion_r4140865140 / https://github.com/jeenee-cha/b2-2/commit/0875943a5fc4aedae43b01f9bdf610b65a219c6f |
@@ -80,7 +80,7 @@
 | I6 | https://github.com/jeenee-cha/b2-2/pull/15 | #12 | 확인 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 | https://github.com/jeenee-cha/b2-2/pull/15#discussion_r4141889202 | 차씨 Approve https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362912238 · Merged |
 | I7 | https://github.com/jeenee-cha/b2-2/pull/16 | #11 | 확인 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142041754 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 | 김씨 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120 · Merged |
 | I8 | https://github.com/jeenee-cha/b2-2/pull/18 | #17 | 확인 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142226942 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142259378 | 송씨 Approve https://github.com/jeenee-cha/b2-2/pull/18#pullrequestreview-5363360492 · Merged |
-| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610 / https://github.com/jeenee-cha/b2-2/commit/cbb1aa2afb4166907471f5562bb51cd79d384569 | 송씨 재확인 후 추가 |
+| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610 / https://github.com/jeenee-cha/b2-2/commit/cbb1aa2afb4166907471f5562bb51cd79d384569 | 송씨 Approve https://github.com/jeenee-cha/b2-2/pull/22#pullrequestreview-5363955033 · Merged (8693be5) |
 
 ## Key Documents
 
@@ -102,7 +102,7 @@
 | `git commit --amend` | 김씨 | 송씨 | amend 전후 출력 [docs/troubleshooting-log.md 시나리오 1](docs/troubleshooting-log.md) |
 | `git reset --soft HEAD~1` | 김씨 | 차씨 | reset 전후 출력 [docs/troubleshooting-log.md 시나리오 2](docs/troubleshooting-log.md) |
 | `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 [docs/troubleshooting-log.md 시나리오 3](docs/troubleshooting-log.md), 김씨 확인 https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460 (재확인 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120) |
-| `git revert` | 차씨 | 송씨 | 원본 commit https://github.com/jeenee-cha/b2-2/commit/765bf661177078fb147f2fed3bbc9938b72cf194, revert commit https://github.com/jeenee-cha/b2-2/commit/68e84b84dc7529f335137213256d45320ad8cda2, I8 PR https://github.com/jeenee-cha/b2-2/pull/18, I9 PR https://github.com/jeenee-cha/b2-2/pull/22 |
+| `git revert` | 차씨 | 송씨 | 원본 commit https://github.com/jeenee-cha/b2-2/commit/765bf661177078fb147f2fed3bbc9938b72cf194, revert commit https://github.com/jeenee-cha/b2-2/commit/68e84b84dc7529f335137213256d45320ad8cda2, I8 PR https://github.com/jeenee-cha/b2-2/pull/18, I9 PR https://github.com/jeenee-cha/b2-2/pull/22, 송씨 Approve https://github.com/jeenee-cha/b2-2/pull/22#pullrequestreview-5363955033 |
 
 ## Repository Settings Evidence
 
@@ -145,10 +145,10 @@ git log --oneline --graph --all > docs/git-history.txt
 - [x] 세 사람 모두 본인 PR 제외 실질 리뷰 2개 이상
 - [x] 세 사람 모두 본인 PR에서 리뷰 반영 1회 이상
 - [x] 세 사람 모두 `docs/CONTRIBUTING.md`에 직접 작성한 커밋 URL이 있음
-- [ ] I1~I9 모든 PR에 What, Why, How, `Closes #번호`가 있음
-- [ ] 모든 PR에 실질 코멘트와 작성자-리뷰어 상호작용이 있음
+- [x] I1~I9 모든 PR에 What, Why, How, `Closes #번호`가 있음
+- [x] 모든 PR에 실질 코멘트와 작성자-리뷰어 상호작용이 있음
 - [x] 충돌 2회와 비자명 충돌 증빙이 있음
 - [x] amend, reset-soft, stash/pop, revert 실제 결과가 있음
 - [x] 세 사람의 유틸 함수와 테스트가 `main`에 있음
 - [x] Branch Protection 네 항목과 Git 히스토리 증빙이 있음
-- [ ] 모든 자리표시자를 실제 값으로 교체함
+- [x] 모든 자리표시자를 실제 값으로 교체함
