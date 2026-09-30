@@ -25,7 +25,7 @@
 | 병합된 PR | I2 | https://github.com/jeenee-cha/b2-2/pull/6 |
 | 병합된 PR | I5 | https://github.com/jeenee-cha/b2-2/pull/14 |
 | 병합된 PR | I8 | https://github.com/jeenee-cha/b2-2/pull/18 |
-| 병합된 PR | I9 | PR 생성 후 보완 |
+| 병합된 PR | I9 | https://github.com/jeenee-cha/b2-2/pull/22 (리뷰 진행 중) |
 | 타인 PR 리뷰 | 송씨 I4 | https://github.com/jeenee-cha/b2-2/pull/10#pullrequestreview-5361874224 |
 | 타인 PR 리뷰 | 김씨 I6 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 |
 | 본인 PR 리뷰 반영 | I1 | https://github.com/jeenee-cha/b2-2/pull/4#discussion_r4140865140 / https://github.com/jeenee-cha/b2-2/commit/0875943a5fc4aedae43b01f9bdf610b65a219c6f |
@@ -80,7 +80,7 @@
 | I6 | https://github.com/jeenee-cha/b2-2/pull/15 | #12 | 확인 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 | https://github.com/jeenee-cha/b2-2/pull/15#discussion_r4141889202 | 차씨 Approve https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362912238 · Merged |
 | I7 | https://github.com/jeenee-cha/b2-2/pull/16 | #11 | 확인 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142041754 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 | 김씨 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120 · Merged |
 | I8 | https://github.com/jeenee-cha/b2-2/pull/18 | #17 | 확인 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142226942 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142259378 | 송씨 Approve https://github.com/jeenee-cha/b2-2/pull/18#pullrequestreview-5363360492 · Merged |
-| I9 | PR 생성 후 보완 | #21 | 확인 예정 | 송씨 리뷰 후 보완 | 차씨 답글·반영 후 보완 | 송씨 Approve 후 보완 |
+| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | 송씨 리뷰 후 보완 | 차씨 답글·반영 후 보완 | 송씨 Approve 후 보완 |
 
 ## Key Documents
 
@@ -102,7 +102,7 @@
 | `git commit --amend` | 김씨 | 송씨 | amend 전후 출력 [docs/troubleshooting-log.md 시나리오 1](docs/troubleshooting-log.md) |
 | `git reset --soft HEAD~1` | 김씨 | 차씨 | reset 전후 출력 [docs/troubleshooting-log.md 시나리오 2](docs/troubleshooting-log.md) |
 | `git stash` / `git stash pop` | 송씨 | 김씨 | stash list/pop 출력 [docs/troubleshooting-log.md 시나리오 3](docs/troubleshooting-log.md), 김씨 확인 https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363028460 (재확인 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120) |
-| `git revert` | 차씨 | 송씨 | 원본 commit https://github.com/jeenee-cha/b2-2/commit/765bf661177078fb147f2fed3bbc9938b72cf194, revert commit https://github.com/jeenee-cha/b2-2/commit/68e84b84dc7529f335137213256d45320ad8cda2, I8 PR https://github.com/jeenee-cha/b2-2/pull/18, I9 PR 생성 후 보완 |
+| `git revert` | 차씨 | 송씨 | 원본 commit https://github.com/jeenee-cha/b2-2/commit/765bf661177078fb147f2fed3bbc9938b72cf194, revert commit https://github.com/jeenee-cha/b2-2/commit/68e84b84dc7529f335137213256d45320ad8cda2, I8 PR https://github.com/jeenee-cha/b2-2/pull/18, I9 PR https://github.com/jeenee-cha/b2-2/pull/22 |
 
 ## Repository Settings Evidence
 

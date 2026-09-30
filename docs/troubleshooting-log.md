@@ -358,7 +358,7 @@ git push
 - I8 Issue/PR URL: https://github.com/jeenee-cha/b2-2/issues/17 / https://github.com/jeenee-cha/b2-2/pull/18
 - 원본 파일 추가 커밋 URL: https://github.com/jeenee-cha/b2-2/commit/765bf661177078fb147f2fed3bbc9938b72cf194
 - revert 커밋 URL: https://github.com/jeenee-cha/b2-2/commit/68e84b84dc7529f335137213256d45320ad8cda2
-- I9 Issue/PR URL: https://github.com/jeenee-cha/b2-2/issues/21 / PR 생성 후 보완
+- I9 Issue/PR URL: https://github.com/jeenee-cha/b2-2/issues/21 / https://github.com/jeenee-cha/b2-2/pull/22
 - 파일 삭제 및 다른 파일 무영향 확인:
 
 ```text
@@ -375,7 +375,7 @@ b514e49 Merge pull request #20 from jeenee-cha/feature/song-submission-evidence
 a7cb38e docs: stash 확인자 재확인 승인 링크 추가
 ```
 
-- 송씨의 리뷰 및 차씨의 답글/반영 링크: I9 PR 생성 후 보완
+- 송씨의 리뷰 및 차씨의 답글/반영 링크: 송씨 리뷰 후 보완
 
 ### 선택 이유와 주의점
 
