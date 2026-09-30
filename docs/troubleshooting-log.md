@@ -393,7 +393,9 @@ b514e49 Merge pull request #20 from jeenee-cha/feature/song-submission-evidence
 a7cb38e docs: stash 확인자 재확인 승인 링크 추가
 ```
 
-- 송씨의 리뷰 및 차씨의 답글/반영 링크: 송씨 리뷰 후 보완
+- 송씨의 리뷰: https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243
+- 차씨 답글: https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610
+- 반영 커밋: 다음 커밋에서 URL 추가
 
 ### 선택 이유와 주의점
 

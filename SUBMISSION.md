@@ -61,7 +61,7 @@
 | 타인 PR 리뷰 | 차씨 I1 | https://github.com/jeenee-cha/b2-2/pull/4#discussion_r4140844332 (Approve https://github.com/jeenee-cha/b2-2/pull/4#pullrequestreview-5361514603) |
 | 타인 PR 리뷰 | 김씨 I3 | https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140957544 (재확인 https://github.com/jeenee-cha/b2-2/pull/8#discussion_r4140990924) |
 | 타인 PR 리뷰 | 차씨 I8 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142226942 |
-| 타인 PR 리뷰 | 차씨 I9 | 송씨 리뷰 후 보완 |
+| 타인 PR 리뷰 | 차씨 I9 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243 |
 | 본인 PR 리뷰 반영 | I4 | https://github.com/jeenee-cha/b2-2/pull/10#discussion_r4141216439 / https://github.com/jeenee-cha/b2-2/commit/042ffc640cd25f831ace55ef8d50d06f6a716d6c, https://github.com/jeenee-cha/b2-2/commit/be1a8bc5d80ce6752033ddab277e4d500f6b8dd1 |
 | 본인 PR 리뷰 반영 | I7 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 / https://github.com/jeenee-cha/b2-2/commit/22cb89536facdabcf0ba5c840dcf47552398c334 |
 | 협업 가이드 작성 | I4 · PR/리뷰 규칙 | https://github.com/jeenee-cha/b2-2/commit/3faed90eafdfaa7903a8a252e2eb0e5c84a74834 |
@@ -80,7 +80,7 @@
 | I6 | https://github.com/jeenee-cha/b2-2/pull/15 | #12 | 확인 | https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362806386 | https://github.com/jeenee-cha/b2-2/pull/15#discussion_r4141889202 | 차씨 Approve https://github.com/jeenee-cha/b2-2/pull/15#pullrequestreview-5362912238 · Merged |
 | I7 | https://github.com/jeenee-cha/b2-2/pull/16 | #11 | 확인 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142041754 | https://github.com/jeenee-cha/b2-2/pull/16#discussion_r4142091167 | 김씨 Approve https://github.com/jeenee-cha/b2-2/pull/16#pullrequestreview-5363184120 · Merged |
 | I8 | https://github.com/jeenee-cha/b2-2/pull/18 | #17 | 확인 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142226942 | https://github.com/jeenee-cha/b2-2/pull/18#discussion_r4142259378 | 송씨 Approve https://github.com/jeenee-cha/b2-2/pull/18#pullrequestreview-5363360492 · Merged |
-| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | 송씨 리뷰 후 보완 | 차씨 답글·반영 후 보완 | 송씨 Approve 후 보완 |
+| I9 | https://github.com/jeenee-cha/b2-2/pull/22 | #21 | 확인 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142714243 | https://github.com/jeenee-cha/b2-2/pull/22#discussion_r4142749610 (반영 커밋 URL은 다음 커밋에서 추가) | 송씨 재확인 후 추가 |
 
 ## Key Documents
 
