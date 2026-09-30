@@ -354,13 +354,28 @@ git push
 
 ### 실제 결과(차씨 작성)
 
-- 실행 날짜: `<YYYY-MM-DD>`
-- I8 Issue/PR URL: `<Issue URL>` / `<PR URL>`
-- 원본 파일 추가 커밋 URL: `<commit URL>`
-- revert 커밋 URL: `<commit URL>`
-- I9 Issue/PR URL: `<Issue URL>` / `<PR URL>`
-- 파일 삭제 및 다른 파일 무영향 확인: `<git status 또는 git show 출력>`
-- 송씨의 리뷰 및 차씨의 답글/반영 링크: `<review URL>` / `<reply or commit URL>`
+- 실행 날짜: 2026-09-30
+- I8 Issue/PR URL: https://github.com/jeenee-cha/b2-2/issues/17 / https://github.com/jeenee-cha/b2-2/pull/18
+- 원본 파일 추가 커밋 URL: https://github.com/jeenee-cha/b2-2/commit/765bf661177078fb147f2fed3bbc9938b72cf194
+- revert 커밋 URL: https://github.com/jeenee-cha/b2-2/commit/68e84b84dc7529f335137213256d45320ad8cda2
+- I9 Issue/PR URL: https://github.com/jeenee-cha/b2-2/issues/21 / PR 생성 후 보완
+- 파일 삭제 및 다른 파일 무영향 확인:
+
+```text
+$ git show --name-only --oneline 68e84b8
+68e84b8 revert: 공유된 실습용 임시 문서 취소
+docs/revert-practice.md
+
+$ test ! -e docs/revert-practice.md && echo "revert removed temporary file"
+revert removed temporary file
+
+$ git log --oneline -3
+68e84b8 revert: 공유된 실습용 임시 문서 취소
+b514e49 Merge pull request #20 from jeenee-cha/feature/song-submission-evidence
+a7cb38e docs: stash 확인자 재확인 승인 링크 추가
+```
+
+- 송씨의 리뷰 및 차씨의 답글/반영 링크: I9 PR 생성 후 보완
 
 ### 선택 이유와 주의점
 
@@ -371,6 +386,6 @@ git push
 - [ ] amend 전후 hash와 메시지가 있음
 - [ ] reset 전 커밋과 reset 후 staged 상태가 있음
 - [ ] stash 목록과 pop 결과가 있음
-- [ ] 원본 commit과 revert commit URL이 모두 있음
+- [x] 원본 commit과 revert commit URL이 모두 있음
 - [ ] 네 시나리오에 차씨, 김씨, 송씨가 각각 실행자로 참여함
 - [ ] 모든 명령은 개인 feature 브랜치에서 실행되었고 force push가 없음
